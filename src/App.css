@@ -1,38 +1,282 @@
-.App {
-  text-align: center;
+/* client/src/App.css */
+
+:root {
+  --primary-color: #007bff;
+  --primary-hover-color: #0056b3;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --success-hover-color: #1e7e34;
+  --danger-color: #dc3545;
+  --danger-hover-color: #bd2130;
+  --warning-color: #ffc107; /* Màu cho nút sửa */
+  --warning-hover-color: #e0a800;
+  --info-color: #17a2b8; /* Màu cho nút hủy/đóng */
+  --info-hover-color: #117a8b;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --text-color: #212529;
+  --border-color: #dee2e6;
+  --input-bg: #fff;
+  --input-border-focus: #80bdff;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --border-radius: 0.3rem; /* Tăng nhẹ bo góc */
+  --box-shadow: 0 .5rem 1rem rgba(0,0,0,.07); /* Shadow nhẹ hơn */
+  --box-shadow-sm: 0 .125rem .25rem rgba(0,0,0,.05);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: var(--font-family-sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: #eef2f7; /* Màu nền tổng thể xám nhẹ */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+*, *::before, *::after { box-sizing: border-box; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 600; /* Tăng độ đậm font heading */
+  line-height: 1.2;
+  color: var(--dark-color);
 }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.4rem; }
+
+p { margin-top: 0; margin-bottom: 1rem; }
+a { color: var(--primary-color); text-decoration: none; }
+a:hover { color: var(--primary-hover-color); text-decoration: underline; }
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 576px) { .container { max-width: 540px; } }
+@media (min-width: 768px) { .container { max-width: 720px; } }
+@media (min-width: 992px) { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+
+
+.App { display: flex; flex-direction: column; min-height: 100vh; }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: var(--primary-color);
+  padding: 15px 0; /* Giảm padding header */
+  color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px; /* Giảm margin bottom */
+}
+.App-header .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.App-header h1 { margin-bottom: 0; color: white; font-size: 1.6rem; }
+
+main { flex: 1; padding-bottom: 30px; }
+
+/* --- Nút chung --- */
+.btn {
+  display: inline-block;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem; /* Giảm size chữ nút */
+  line-height: 1.5;
+  border-radius: var(--border-radius);
+  transition: all .15s ease-in-out;
+}
+.btn:focus { outline: none; box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); } /* Thêm focus style */
+
+.btn-header-toggle { /* Nút thêm mới trên header */
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+}
+.btn-header-toggle:hover {
+    background-color: var(--success-hover-color);
+    border-color: var(--success-hover-color);
+}
+
+
+/* ----- Styling cho Form Bệnh Nhân ----- */
+.patient-form-container {
+  max-width: 700px;
+  margin: 20px auto 30px auto;
+  padding: 25px 30px;
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--border-color);
+}
+.patient-form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+.form-group {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.form-group label {
+  font-weight: 500;
+  color: #495057;
+  width: 180px; /* Giảm độ rộng label */
+  padding-right: 15px;
+  text-align: right;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.form-control {
+  flex-grow: 1;
+  display: block;
+  padding: 0.55rem 0.8rem; /* Giảm padding input */
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--input-bg);
+  border: 1px solid #ced4da;
+  border-radius: var(--border-radius);
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.form-control:focus {
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+select.form-control { /* Style cho select */
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    padding-right: 2.5rem;
+}
+textarea.form-control { min-height: 90px; resize: vertical; }
+
+.form-actions { /* Bọc các nút submit và cancel trong form */
+    display: flex;
+    justify-content: flex-end; /* Canh nút sang phải */
+    gap: 10px; /* Khoảng cách giữa các nút */
+    margin-top: 20px;
+}
+.btn-submit-patient { /* Nút Lưu/Cập nhật */
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+.btn-submit-patient:hover { background-color: var(--success-hover-color); }
+
+.btn-cancel { /* Nút Hủy */
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+.btn-cancel:hover { background-color: #5a6268; }
+
+
+/* ----- Styling cho Danh sách bệnh nhân và Tìm kiếm ----- */
+.patient-list-section { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+.patient-list-section h2 { text-align: center; margin-bottom: 20px; color: var(--dark-color); font-size: 1.5rem; }
+.search-bar-container { margin-bottom: 20px; display: flex; justify-content: center; }
+.search-input {
+  width: 100%;
+  max-width: 450px;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+.search-input:focus { border-color: var(--primary-color); box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); outline: none; }
+
+.patient-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Tăng minwidth cho card */
+  gap: 20px;
+}
+.patient-card {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  box-shadow: var(--box-shadow-sm);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.patient-card:hover { transform: translateY(-3px); box-shadow: var(--box-shadow); }
+
+.patient-card-summary h4 {
+  margin-top: 0; margin-bottom: 8px; color: var(--primary-color); font-size: 1.15rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.patient-card-summary p { font-size: 0.85rem; color: var(--secondary-color); margin-bottom: 5px; }
+
+.patient-card-details { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border-color); font-size: 0.85rem; }
+.patient-card-details p { margin-bottom: 0.4rem; line-height: 1.4; }
+.patient-card-details p strong { color: var(--dark-color); min-width: 110px; display: inline-block; }
+
+.patient-card-actions { /* Bọc nút sửa, xóa */
+    display: flex;
+    gap: 8px; /* Khoảng cách giữa nút sửa và xóa */
+    margin-top: 15px; /* Khoảng cách với phần details nếu có, hoặc summary */
+    padding-top: 10px;
+    border-top: 1px solid #eee; /* Ngăn cách nhẹ */
+}
+.btn-edit {
+    background-color: var(--warning-color);
+    border-color: var(--warning-color);
+    color: var(--dark-color); /* Chữ màu tối cho dễ đọc trên nền vàng */
+    padding: 0.35rem 0.7rem; /* Nút nhỏ hơn */
+    font-size: 0.8rem;
+}
+.btn-edit:hover { background-color: var(--warning-hover-color); }
+
+.btn-delete {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+}
+.btn-delete:hover { background-color: var(--danger-hover-color); }
+
+.patient-card-footer {
+  margin-top: auto; padding-top: 8px; font-size: 0.75em; color: var(--secondary-color); text-align: right;
 }
 
-.App-link {
-  color: #61dafb;
+
+.loading-text, .no-data-text, .no-results-text {
+  grid-column: 1 / -1; text-align: center; font-style: italic;
+  color: var(--secondary-color); padding: 20px; font-size: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media (max-width: 768px) {
+  .App-header .header-content { flex-direction: column; gap: 10px;}
+  .App-header h1 { font-size: 1.4rem; }
+  .form-group { flex-direction: column; align-items: flex-start; }
+  .form-group label { width: 100%; text-align: left; margin-bottom: 0.4rem; }
+  .form-control { width: 100%; }
+  .patient-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+}
+@media (max-width: 576px) {
+  .patient-grid { grid-template-columns: 1fr; }
+  .patient-form-container { margin-left: 10px; margin-right: 10px; padding: 20px;}
+  .form-actions { flex-direction: column; gap: 10px; } /* Nút trên form xếp chồng */
+  .form-actions .btn { width: 100%; }
 }

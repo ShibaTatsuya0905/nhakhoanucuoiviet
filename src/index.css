@@ -1,13 +1,88 @@
+/* client/src/index.css */
+
+:root {
+  --primary-color: #007bff; /* Xanh dương chủ đạo */
+  --primary-hover-color: #0056b3;
+  --secondary-color: #6c757d; /* Xám phụ */
+  --success-color: #28a745; /* Xanh lá thành công */
+  --success-hover-color: #1e7e34;
+  --danger-color: #dc3545; /* Đỏ nguy hiểm */
+  --light-color: #f8f9fa; /* Màu nền sáng */
+  --dark-color: #343a40; /* Màu chữ/nền tối */
+  --text-color: #212529; /* Màu chữ chính */
+  --border-color: #dee2e6; /* Màu viền */
+  --input-bg: #fff;
+  --input-border-focus: #80bdff;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --border-radius: 0.25rem; /* Bo góc chung */
+  --box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  --box-shadow-sm: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-family-sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--light-color); /* Nền tổng thể của trang */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--dark-color);
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: var(--primary-hover-color);
+  text-decoration: underline;
+}
+
+/* Helper class for container */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container { max-width: 540px; }
+}
+@media (min-width: 768px) {
+  .container { max-width: 720px; }
+}
+@media (min-width: 992px) {
+  .container { max-width: 960px; }
+}
+@media (min-width: 1200px) {
+  .container { max-width: 1140px; }
 }
