@@ -1,4 +1,3 @@
-/* client/src/App.css */
 
 :root {
   --primary-color: #007bff;
@@ -8,9 +7,9 @@
   --success-hover-color: #1e7e34;
   --danger-color: #dc3545;
   --danger-hover-color: #bd2130;
-  --warning-color: #ffc107; /* Màu cho nút sửa */
+  --warning-color: #ffc107;
   --warning-hover-color: #e0a800;
-  --info-color: #17a2b8; /* Màu cho nút hủy/đóng */
+  --info-color: #17a2b8;
   --info-hover-color: #117a8b;
   --light-color: #f8f9fa;
   --dark-color: #343a40;
@@ -19,8 +18,8 @@
   --input-bg: #fff;
   --input-border-focus: #80bdff;
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --border-radius: 0.3rem; /* Tăng nhẹ bo góc */
-  --box-shadow: 0 .5rem 1rem rgba(0,0,0,.07); /* Shadow nhẹ hơn */
+  --border-radius: 0.3rem;
+  --box-shadow: 0 .5rem 1rem rgba(0,0,0,.07);
   --box-shadow-sm: 0 .125rem .25rem rgba(0,0,0,.05);
 }
 
@@ -31,7 +30,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: var(--text-color);
-  background-color: #eef2f7; /* Màu nền tổng thể xám nhẹ */
+  background-color: #eef2f7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -41,7 +40,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-weight: 600; /* Tăng độ đậm font heading */
+  font-weight: 600;
   line-height: 1.2;
   color: var(--dark-color);
 }
@@ -65,15 +64,14 @@ a:hover { color: var(--primary-hover-color); text-decoration: underline; }
 @media (min-width: 992px) { .container { max-width: 960px; } }
 @media (min-width: 1200px) { .container { max-width: 1140px; } }
 
-
 .App { display: flex; flex-direction: column; min-height: 100vh; }
 
 .App-header {
   background-color: var(--primary-color);
-  padding: 15px 0; /* Giảm padding header */
+  padding: 15px 0;
   color: white;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-bottom: 20px; /* Giảm margin bottom */
+  margin-bottom: 20px;
 }
 .App-header .header-content {
     display: flex;
@@ -84,7 +82,6 @@ a:hover { color: var(--primary-hover-color); text-decoration: underline; }
 
 main { flex: 1; padding-bottom: 30px; }
 
-/* --- Nút chung --- */
 .btn {
   display: inline-block;
   font-weight: 500;
@@ -96,14 +93,14 @@ main { flex: 1; padding-bottom: 30px; }
   background-color: transparent;
   border: 1px solid transparent;
   padding: 0.5rem 1rem;
-  font-size: 0.9rem; /* Giảm size chữ nút */
+  font-size: 0.9rem;
   line-height: 1.5;
   border-radius: var(--border-radius);
   transition: all .15s ease-in-out;
 }
-.btn:focus { outline: none; box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); } /* Thêm focus style */
+.btn:focus { outline: none; box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25); }
 
-.btn-header-toggle { /* Nút thêm mới trên header */
+.btn-header-toggle {
     background-color: var(--success-color);
     border-color: var(--success-color);
 }
@@ -112,8 +109,6 @@ main { flex: 1; padding-bottom: 30px; }
     border-color: var(--success-hover-color);
 }
 
-
-/* ----- Styling cho Form Bệnh Nhân ----- */
 .patient-form-container {
   max-width: 700px;
   margin: 20px auto 30px auto;
@@ -138,7 +133,7 @@ main { flex: 1; padding-bottom: 30px; }
 .form-group label {
   font-weight: 500;
   color: #495057;
-  width: 180px; /* Giảm độ rộng label */
+  width: 180px;
   padding-right: 15px;
   text-align: right;
   font-size: 0.9rem;
@@ -147,7 +142,7 @@ main { flex: 1; padding-bottom: 30px; }
 .form-control {
   flex-grow: 1;
   display: block;
-  padding: 0.55rem 0.8rem; /* Giảm padding input */
+  padding: 0.55rem 0.8rem;
   font-size: 0.95rem;
   font-weight: 400;
   line-height: 1.5;
@@ -161,7 +156,7 @@ main { flex: 1; padding-bottom: 30px; }
   border-color: var(--input-border-focus);
   box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
 }
-select.form-control { /* Style cho select */
+select.form-control {
     appearance: none;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
@@ -171,26 +166,24 @@ select.form-control { /* Style cho select */
 }
 textarea.form-control { min-height: 90px; resize: vertical; }
 
-.form-actions { /* Bọc các nút submit và cancel trong form */
+.form-actions {
     display: flex;
-    justify-content: flex-end; /* Canh nút sang phải */
-    gap: 10px; /* Khoảng cách giữa các nút */
+    justify-content: flex-end;
+    gap: 10px;
     margin-top: 20px;
 }
-.btn-submit-patient { /* Nút Lưu/Cập nhật */
+.btn-submit-patient {
   background-color: var(--success-color);
   border-color: var(--success-color);
 }
 .btn-submit-patient:hover { background-color: var(--success-hover-color); }
 
-.btn-cancel { /* Nút Hủy */
+.btn-cancel {
     background-color: var(--secondary-color);
     border-color: var(--secondary-color);
 }
 .btn-cancel:hover { background-color: #5a6268; }
 
-
-/* ----- Styling cho Danh sách bệnh nhân và Tìm kiếm ----- */
 .patient-list-section { max-width: 1200px; margin: 0 auto; padding: 0 15px; }
 .patient-list-section h2 { text-align: center; margin-bottom: 20px; color: var(--dark-color); font-size: 1.5rem; }
 .search-bar-container { margin-bottom: 20px; display: flex; justify-content: center; }
@@ -206,7 +199,7 @@ textarea.form-control { min-height: 90px; resize: vertical; }
 
 .patient-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Tăng minwidth cho card */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 20px;
 }
 .patient-card {
@@ -232,18 +225,18 @@ textarea.form-control { min-height: 90px; resize: vertical; }
 .patient-card-details p { margin-bottom: 0.4rem; line-height: 1.4; }
 .patient-card-details p strong { color: var(--dark-color); min-width: 110px; display: inline-block; }
 
-.patient-card-actions { /* Bọc nút sửa, xóa */
+.patient-card-actions {
     display: flex;
-    gap: 8px; /* Khoảng cách giữa nút sửa và xóa */
-    margin-top: 15px; /* Khoảng cách với phần details nếu có, hoặc summary */
+    gap: 8px;
+    margin-top: 15px;
     padding-top: 10px;
-    border-top: 1px solid #eee; /* Ngăn cách nhẹ */
+    border-top: 1px solid #eee;
 }
 .btn-edit {
     background-color: var(--warning-color);
     border-color: var(--warning-color);
-    color: var(--dark-color); /* Chữ màu tối cho dễ đọc trên nền vàng */
-    padding: 0.35rem 0.7rem; /* Nút nhỏ hơn */
+    color: var(--dark-color);
+    padding: 0.35rem 0.7rem;
     font-size: 0.8rem;
 }
 .btn-edit:hover { background-color: var(--warning-hover-color); }
@@ -259,7 +252,6 @@ textarea.form-control { min-height: 90px; resize: vertical; }
 .patient-card-footer {
   margin-top: auto; padding-top: 8px; font-size: 0.75em; color: var(--secondary-color); text-align: right;
 }
-
 
 .loading-text, .no-data-text, .no-results-text {
   grid-column: 1 / -1; text-align: center; font-style: italic;
@@ -277,6 +269,6 @@ textarea.form-control { min-height: 90px; resize: vertical; }
 @media (max-width: 576px) {
   .patient-grid { grid-template-columns: 1fr; }
   .patient-form-container { margin-left: 10px; margin-right: 10px; padding: 20px;}
-  .form-actions { flex-direction: column; gap: 10px; } /* Nút trên form xếp chồng */
+  .form-actions { flex-direction: column; gap: 10px; }
   .form-actions .btn { width: 100%; }
 }

@@ -4,7 +4,6 @@ const PatientForm = ({ initialData, mode, onSubmit, onCancel }) => {
     const [formData, setFormData] = useState(initialData);
 
     useEffect(() => {
-        // Cập nhật form data khi initialData (bệnh nhân đang sửa) thay đổi
         setFormData(initialData);
     }, [initialData]);
 
@@ -32,7 +31,7 @@ const PatientForm = ({ initialData, mode, onSubmit, onCancel }) => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="ngaySinh">Ngày sinh:</label>
-                    {/* Đảm bảo formData.ngaySinh có định dạng YYYY-MM-DD */}
+                    {}
                     <input type="date" id="ngaySinh" name="ngaySinh" className="form-control" value={formData.ngaySinh || ''} onChange={handleChange} required />
                 </div>
                 <div className="form-group">
@@ -75,8 +74,8 @@ const PatientForm = ({ initialData, mode, onSubmit, onCancel }) => {
                     <button type="submit" className="btn btn-submit-patient">
                         {mode === 'edit' ? 'Cập Nhật Hồ Sơ' : 'Lưu Hồ Sơ'}
                     </button>
-                    {/* Nút Hủy chỉ hiển thị khi đang sửa hoặc khi form đang hiện (có thể tùy chỉnh logic) */}
-                    {(mode === 'edit' || (mode === 'create' && initialData.hoTen)) && ( // Điều kiện hiển thị nút hủy
+                    {
+                    {(mode === 'edit' || (mode === 'create' && initialData.hoTen)) && ( 
                          <button type="button" onClick={onCancel} className="btn btn-cancel">
                             Hủy
                         </button>
